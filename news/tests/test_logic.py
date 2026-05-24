@@ -74,8 +74,8 @@ class TestCommentCreation(TestCase):
 
 
 class TestCommentEditDelete(TestCase):
-    # Тексты для комментариев не нужно дополнительно создавать 
-    # (в отличие от объектов в БД), им не нужны ссылки на self или cls, 
+    # Тексты для комментариев не нужно дополнительно создавать
+    # (в отличие от объектов в БД), им не нужны ссылки на self или cls,
     # поэтому их можно перечислить просто в атрибутах класса.
     COMMENT_TEXT = 'Текст комментария'
     NEW_COMMENT_TEXT = 'Обновлённый комментарий'
@@ -84,9 +84,9 @@ class TestCommentEditDelete(TestCase):
     def setUpTestData(cls):
         # Создаём новость в БД.
         cls.news = News.objects.create(title='Заголовок', text='Текст')
-        # Формируем адрес блока с комментариями, который понадобится для тестов.
-        news_url = reverse('news:detail', args=(cls.news.id,))  # Адрес новости.
-        cls.url_to_comments = news_url + '#comments'  # Адрес блока с комментариями.
+        # Формируем адрес блока с комментариями.
+        news_url = reverse('news:detail', args=(cls.news.id,))
+        cls.url_to_comments = news_url + '#comments'
         # Создаём пользователя - автора комментария.
         cls.author = User.objects.create(username='Автор комментария')
         # Создаём клиент для пользователя-автора.

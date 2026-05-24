@@ -32,10 +32,10 @@ class TestNews(TestCase):
         cls.user = User.objects.create(username='testUser')
         # Создаём объект клиента.
         cls.user_client = Client()
-        # "Логинимся" в клиенте при помощи метода force_login().        
+        # "Логинимся" в клиенте при помощи метода force_login().
         cls.user_client.force_login(cls.user)
         # Теперь через этот клиент можно отправлять запросы
-        # от имени пользователя с логином "testUser". 
+        # от имени пользователя с логином "testUser".
 
     # Проверим, что объект действительно был создан.
     @unittest.skip("Пропускаем этот тест временно")
